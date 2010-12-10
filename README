@@ -1,0 +1,13 @@
+# Insight
+
+Rails engine to access support requests and knowledge base articles stored in FatFree CRM. 
+
+## Installation
+
+Install it as a gem. Make sure your development database exists and run the generator:
+  
+    script/generate insight
+    
+## Copyright
+
+Copyright (c) 2010 Kieran Johnson. See LICENSE for details.

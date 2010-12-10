@@ -1,0 +1,29 @@
+<h1>Public Discussions</h1>
+
+<h2>Welcome to the discussion area. You can browse public discussions or start your own discussion in a category of your choosing.</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Latest Post</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| -%>
+      <tr>
+        <td>
+          <h2><%= link_to(category.name, help_category_issues_path(category)) %></h2>
+          <%= simple_format(category.description) %>
+        </td>
+        <td>
+          <% if !category.issues.empty? -%>
+            <%= link_to(category.issues.first.updated_at.strftime("%b %d, %Y %H:%M"),
+                        help_category_issue_path(category, category.issues.first)) %> 
+            by <%= category.issues.first.contact.username %>
+          <% end -%>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

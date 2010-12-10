@@ -1,0 +1,14 @@
+<h1>Knowledge Base</h1>
+
+<% @categories.each do |category| %>
+  <div>
+    <h2><%= category.name %></h2>
+    <ul>
+      <% category.articles[0..5].each do |article| %>
+        <li>
+          <%= link_to(article.title, knowledge_article_path(article)) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

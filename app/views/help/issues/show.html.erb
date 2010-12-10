@@ -1,0 +1,33 @@
+<h1><strong>Subject</strong> : <%= @issue.subject %></h1>
+
+<div class="author">
+  <p><%= @issue.contact.username %></p>
+  <%= posted_on_long(@issue.updated_at) %>
+</div>
+
+<div class="body">
+  <%= simple_format(@issue.body) %>
+</div>
+
+<div class="comments">
+  <% @issue.comments.each_with_index do |comment, index| %>
+    <div>
+      <div class="who">
+        <p>Posted by <cite><%= comment.commenter.username %></cite> on <%= posted_on_long(comment.updated_at) %></p>
+      </div>
+      <div class="gravatar">
+
+      </div>
+      <div class="said">
+        <%= simple_format(comment.comment) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if logged_in? %>
+  <h3>Reply to this discussion</h3>
+  <%= render :partial => "support/comments/form" %>
+<% else %>
+  <h3>Login to reply to this discussion</h3>
+<% end %>

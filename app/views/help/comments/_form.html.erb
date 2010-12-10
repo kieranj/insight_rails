@@ -1,0 +1,14 @@
+<% form_tag(issue_comments_path(@issue)) do %>
+  <fieldset class="inputs">
+    <ol>
+      <li>
+        <%= text_area_tag "comment[comment]" %>
+      </li>
+  </fieldset>
+  
+  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_private_key %>
+  
+  <fieldset class="buttons">
+    <%= submit_tag("Post Comment") %>
+  </fieldset>
+<% end %>

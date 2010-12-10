@@ -1,0 +1,41 @@
+<h1>Issues</h1>
+
+<% if logged_in? %>
+  <p>
+    <%= link_to("Create New Issue", new_help_support_issue_path) %>
+  </p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>State</th>
+      <th>Replies</th>
+      <th>Latest Post</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td>
+          <h2><%= link_to(issue.subject, help_issue_path(issue)) %></h2>
+          <p>Started by <%= issue.contact.username %></p>
+        </td>
+        <td>
+          <%= issue.state %>
+        </td>
+        <td>
+          <%= issue.comments.count %>
+        </td>
+        <td>
+          <% if issue.comments.empty? %>
+            <%= posted_on_short(issue.created_at) %>
+          <% else %>
+            <%= posted_on_short(issue.comments.last.updated_at) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+<% form_tag(help_issues_path) do %>
+  <fieldset class="inputs">
+    <ol>
+      <li>
+        <%= label_tag "issue[category_id]", "Category" %>
+        <%= select_tag "issue[category_id]", 
+                       options_from_collection_for_select(Category.find(:all), :id, :name),
+                       :prompt => "Please select" %>
+      </li>
+      <li>
+        <%= label_tag "issue[subject]", "Subject" %>
+        <%= text_field_tag "issue[subject]" %>
+      </li>
+      <li>
+        <%= text_area_tag "issue[body]" %>
+      </li>
+      <li class="boolean">
+        <label>
+          <%= check_box_tag "issue[private]" %>
+          Mark this issue as private. Only allow support representatives to see it.
+        </label>
+      </li>
+  </fieldset>
+  
+  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_private_key %>
+  
+  <fieldset class="buttons">
+    <%= submit_tag("Post Issue") %>
+  </fieldset>
+<% end %>

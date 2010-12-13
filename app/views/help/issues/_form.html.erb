@@ -1,17 +1,17 @@
-<% form_tag(help_issues_path) do %>
+<% form_tag(help_issues_path, :class => "formtastic") do %>
   <fieldset class="inputs">
     <ol>
-      <li>
+      <li class="select">
         <%= label_tag "issue[category_id]", "Category" %>
         <%= select_tag "issue[category_id]", 
                        options_from_collection_for_select(Category.find(:all), :id, :name),
                        :prompt => "Please select" %>
       </li>
-      <li>
+      <li class="string">
         <%= label_tag "issue[subject]", "Subject" %>
         <%= text_field_tag "issue[subject]" %>
       </li>
-      <li>
+      <li class="text">
         <%= text_area_tag "issue[body]" %>
       </li>
       <li class="boolean">
@@ -22,7 +22,7 @@
       </li>
   </fieldset>
   
-  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_private_key %>
+  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_public_key %>
   
   <fieldset class="buttons">
     <%= submit_tag("Post Issue") %>

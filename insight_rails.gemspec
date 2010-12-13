@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kieran Johnson"]
-  s.date = %q{2010-12-10}
+  s.date = %q{2010-12-12}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
@@ -41,12 +41,21 @@ Gem::Specification.new do |s|
     "app/views/help/issues/show.html.erb",
     "app/views/knowledge/article_categories/index.html.erb",
     "app/views/knowledge/articles/show.html.erb",
-    "app/views/layouts/support_layout.html.erb",
+    "app/views/layouts/insight_layout.html.erb",
     "config/routes.rb",
     "generators/insight/insight_generator.rb",
+    "generators/insight/lib/insert_commands.rb",
+    "generators/insight/templates/README",
+    "generators/insight/templates/insight.rake",
     "generators/insight/templates/insight.rb",
+    "generators/insight/templates/insight.sass",
+    "generators/insight/templates/migrations/link_users_to_crm_contacts.rb",
     "lib/insight.rb",
-    "lib/insight/configuration.rb"
+    "lib/insight/configuration.rb",
+    "lib/insight/crm/callbacks/account.rb",
+    "lib/insight/crm/callbacks/user.rb",
+    "lib/insight/crm/models/account.rb",
+    "lib/insight/crm/models/contact.rb"
   ]
   s.homepage = %q{http://github.com/kieranj/insight}
   s.require_paths = ["lib"]

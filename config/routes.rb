@@ -22,7 +22,9 @@ ActionController::Routing::Routes.draw do |map|
       category.resources :issues
     end
   
-    help.resources :issues, :except => [ :destroy ] do |issue|
+    help.resources :issues, 
+      :collection => { :my => :get },
+      :except     => [ :destroy ] do |issue|
       issue.resources :comments, :except => [ :destroy ]
     end
   end

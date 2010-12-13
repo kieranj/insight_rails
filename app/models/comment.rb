@@ -4,8 +4,8 @@ class Comment < ActiveResource::Base
   
   self.site = Insight.configuration.fat_free_url + "/issues/:issue_id"
   
-  def issue
-    Issue.find(issue_id)
-  end
+  # def issue
+  #   Issue.find(issue_id)
+  # end
   
 end

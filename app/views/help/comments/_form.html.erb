@@ -1,12 +1,12 @@
-<% form_tag(issue_comments_path(@issue)) do %>
+<% form_tag(help_issue_comments_path(@issue), :class => "formtastic") do %>
   <fieldset class="inputs">
     <ol>
-      <li>
+      <li class="text">
         <%= text_area_tag "comment[comment]" %>
       </li>
   </fieldset>
   
-  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_private_key %>
+  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_public_key %>
   
   <fieldset class="buttons">
     <%= submit_tag("Post Comment") %>

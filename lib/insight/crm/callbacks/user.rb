@@ -9,7 +9,7 @@ module Insight
         def self.included(base)
           base.class_eval do
             after_create :create_crm_contact
-            after_update :update_crm_contact, :unless => :recording_last_activity?
+            # after_update :update_crm_contact, :unless => :recording_last_activity?
           end
         
           protected

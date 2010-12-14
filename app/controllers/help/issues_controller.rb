@@ -13,7 +13,7 @@ class Help::IssuesController < ApplicationController
     if params[:category_id]
       @issues = Category.find(params[:category_id]).issues
     else
-      @issues = Issue.find(:all, :params => { :contact_id => current_user.crm_id })
+      @issues = Issue.find(:all)
     end
   end
   

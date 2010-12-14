@@ -3,7 +3,7 @@ class Help::CommentsController < ApplicationController
   before_filter :login_required
     
   def create
-    @comment = Comment.new(params[:comment].merge(defaults)
+    @comment = Comment.new(params[:comment].merge(defaults))
     if verify_recaptcha(:model => @comment, :private_key => Insight.configuration.recaptcha_private_key) && @comment.save
       redirect_to(help_issue_path(@comment.issue.to_param))
     else
@@ -17,7 +17,7 @@ class Help::CommentsController < ApplicationController
       { 
         :issue_id       => params[:issue_id], 
         :commenter_id   => current_user.crm_id,
-        :commenter_type => "Contact")
+        :commenter_type => "Contact"
       }
     end
   

@@ -9,12 +9,12 @@ module Insight
         def self.included(base)
           base.class_eval do
             after_create :create_crm_account
-            after_update :update_crm_account
+            # after_update :update_crm_account
           end
         
           protected
         
-            def create_crm_contact
+            def create_crm_account
               account         = CRM::Models::Account.new
               account.name    = name
               account.user_id = 1
@@ -22,7 +22,7 @@ module Insight
               self.update_attribute(:crm_id, account.id)
             end
           
-            def update_crm_contact
+            def update_crm_account
               account      = CRM::Models::Account.find(crm_id)
               account.name = name
               account.save

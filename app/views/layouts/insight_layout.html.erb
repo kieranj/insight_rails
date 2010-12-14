@@ -1,16 +1,30 @@
-<ul>
-  <li>
-    <%= link_to("Home", help_path) %>
-  </li>
-  <li>
-    <%= link_to("New Discussion", new_help_issue_path) %>
-  </li>
-  <li>
-    <%= link_to("Browse Discussions", help_issues_path) %>
-  </li>
-  <li>
-    <%= link_to("Knowledge Base", knowledge_path) %>
-  </li>
-</ul>
-
-<%= yield %>
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Help &amp; Support</title>
+    <%= stylesheet_link_tag 'reset-fonts-grids', 'base-min', 'marketing', 'insight' %>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <ul>
+          <li>
+            <%= link_to("Support Home", help_path) %>
+          </li>
+          <li>
+            <%= link_to("Browse Discussions", help_browse_path) %>
+          </li>
+          <li>
+            <%= link_to("Knowledge Base", knowledge_path) %>
+          </li>
+          <li>
+            <%= link_to("Return to App", "/") %>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

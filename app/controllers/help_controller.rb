@@ -1,4 +1,4 @@
-class HelpController < ApplicationController
+class HelpController < InsightController
   
   skip_before_filter :login_required
   

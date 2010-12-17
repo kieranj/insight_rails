@@ -1,6 +1,16 @@
 <% form_tag(help_issues_path, :class => "formtastic") do %>
   <fieldset class="inputs">
     <ol>
+      <% if !logged_in? -%>
+        <li class="string">
+          <%= label_tag "issue[user_name]", "Name" %>
+          <%= text_field_tag "issue[user_name]" %>
+        </li>
+        <li class="string">
+          <%= label_tag "issue[user_email]", "Email" %>
+          <%= text_field_tag "issue[user_email]" %>
+        </li>
+      <% end -%>
       <li class="select">
         <%= label_tag "issue[category_id]", "Category" %>
         <%= select_tag "issue[category_id]", 
@@ -14,12 +24,15 @@
       <li class="text">
         <%= text_area_tag "issue[body]" %>
       </li>
-      <li class="boolean">
-        <label>
-          <%= check_box_tag "issue[private]" %>
-          Mark this issue as private. Only allow support representatives to see it.
-        </label>
-      </li>
+      <% if logged_in? -%>
+        <li class="boolean">
+          <label>
+            <%= check_box_tag "issue[private]" %>
+            Mark this issue as private. Only allow support representatives to see it.
+          </label>
+        </li>
+      <% end -%>
+    </ol>
   </fieldset>
   
   <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_public_key %>

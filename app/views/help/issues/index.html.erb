@@ -18,7 +18,7 @@
       <tr>
         <td>
           <h2><%= link_to(issue.subject, help_issue_path(issue)) %></h2>
-          <p>Started by <%= issue.contact.username %></p>
+          <p>Started by <%= issue.user_name %></p>
         </td>
         <td>
           <%= issue.state %>

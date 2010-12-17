@@ -9,6 +9,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors     = ["Kieran Johnson"]
   gem.files       = FileList["[A-Z]*", "{app,config,generators,lib,rails}/**/*"]
   gem.add_dependency "recaptcha"
+  gem.add_dependency "gravtastic"
 end
 
 Jeweler::GemcutterTasks.new

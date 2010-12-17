@@ -4,8 +4,23 @@ class Comment < ActiveResource::Base
   
   self.site = Insight.configuration.fat_free_url + "/issues/:issue_id"
   
-  # def issue
-  #   Issue.find(issue_id)
-  # end
+  include Gravtastic
+  gravtastic :user_email
+  
+  def user_name
+    if commenter_id
+      commenter.username
+    else
+      super
+    end
+  end
+  
+  def user_email
+    if commenter_id
+      commenter.email
+    else
+      super
+    end
+  end
   
 end

@@ -1,0 +1,20 @@
+<h1>Login</h1>
+
+<% form_tag(help_session_path, :class => "formtastic") do %>
+  <fieldset class="inputs">
+    <ol>
+      <li class="string">
+        <%= label_tag      "user[email]", "Email" %>
+        <%= text_field_tag "user[email]" %>
+      </li>
+      <li class="password">
+        <%= label_tag          "user[password]", "Password" %>
+        <%= password_field_tag "user[password]" %>
+      </li>
+    </ol>
+  </fieldset>
+  
+  <fieldset class="buttons">
+    <%= submit_tag("Login") %>
+  </fieldset>
+<% end %>

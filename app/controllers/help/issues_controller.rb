@@ -1,8 +1,10 @@
-class Help::IssuesController < ApplicationController
+class Help::IssuesController < InsightController
   
   layout Insight.configuration.layout
   
-  before_filter :login_required, :except => [ :index, :show ]
+  skip_before_filter :login_required
+  
+  # before_filter :login_required, :except => [ :index, :show ]
   
   def my
     @issues = Issue.get(:my, :crm_id => current_user.crm_id)
@@ -26,7 +28,9 @@ class Help::IssuesController < ApplicationController
   end
   
   def create
-    @issue = Issue.new(params[:issue].merge(:contact_id => current_user.crm_id))
+    @issue            = Issue.new(params[:issue])
+    @issue.contact_id = current_user.crm_id if logged_in? && !current_user.crm_id.nil?
+    
     if verify_recaptcha(:model => @issue, :private_key => Insight.configuration.recaptcha_private_key) && @issue.save
       redirect_to(help_issue_path(@issue))
     else

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kieran Johnson"]
-  s.date = %q{2010-12-14}
+  s.date = %q{2010-12-15}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "app/controllers/help/comments_controller.rb",
     "app/controllers/help/issues_controller.rb",
     "app/controllers/help_controller.rb",
+    "app/controllers/insight_controller.rb",
     "app/controllers/knowledge/article_categories_controller.rb",
     "app/controllers/knowledge/articles_controller.rb",
     "app/helpers/help/issues_helper.rb",
@@ -31,7 +32,10 @@ Gem::Specification.new do |s|
     "app/models/category.rb",
     "app/models/category_issue.rb",
     "app/models/comment.rb",
+    "app/models/insight_session.rb",
+    "app/models/insight_user.rb",
     "app/models/issue.rb",
+    "app/models/lead.rb",
     "app/views/help/categories/index.html.erb",
     "app/views/help/comments/_form.html.erb",
     "app/views/help/index.html.erb",
@@ -39,6 +43,8 @@ Gem::Specification.new do |s|
     "app/views/help/issues/index.html.erb",
     "app/views/help/issues/new.html.erb",
     "app/views/help/issues/show.html.erb",
+    "app/views/help/sessions/new.html.erb",
+    "app/views/help/users/new.html.erb",
     "app/views/knowledge/article_categories/index.html.erb",
     "app/views/knowledge/articles/show.html.erb",
     "app/views/layouts/insight_layout.html.erb",
@@ -55,7 +61,8 @@ Gem::Specification.new do |s|
     "lib/insight/crm/callbacks/account.rb",
     "lib/insight/crm/callbacks/user.rb",
     "lib/insight/crm/models/account.rb",
-    "lib/insight/crm/models/contact.rb"
+    "lib/insight/crm/models/contact.rb",
+    "lib/insight/multi_pass.rb"
   ]
   s.homepage = %q{http://github.com/kieranj/insight}
   s.require_paths = ["lib"]
@@ -68,11 +75,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<recaptcha>, [">= 0"])
+      s.add_runtime_dependency(%q<gravtastic>, [">= 0"])
     else
       s.add_dependency(%q<recaptcha>, [">= 0"])
+      s.add_dependency(%q<gravtastic>, [">= 0"])
     end
   else
     s.add_dependency(%q<recaptcha>, [">= 0"])
+    s.add_dependency(%q<gravtastic>, [">= 0"])
   end
 end
 

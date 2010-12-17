@@ -2,7 +2,8 @@
   <h1><strong>Subject</strong> : <%= @issue.subject %></h1>
 
   <div class="author">
-    <p>Posted by <cite><%= @issue.contact.username %></cite> on <%= posted_on_long(@issue.updated_at) %></p>
+    <%= image_tag(@issue.gravatar_url(:size => 30)) %>
+    <p>Posted by <cite><%= @issue.user_name %></cite> on <%= posted_on_long(@issue.updated_at) %></p>
   </div>
 
   <div class="body">
@@ -14,10 +15,10 @@
   <% @issue.comments.each_with_index do |comment, index| %>
     <li class="<%= cycle(:odd, :even) %>">
       <div class="who <% "staff" if comment.commenter_type == "User" %>">
-        <p><strong><%= index + 1 %></strong> Posted by <cite><%= comment.commenter.username %></cite> on <%= posted_on_long(comment.updated_at) %></p>
+        <p><strong><%= index + 1 %></strong> Posted by <cite><%= comment.user_name %></cite> on <%= posted_on_long(comment.updated_at) %></p>
       </div>
       <div class="gravatar">
-
+        <%= image_tag(comment.gravatar_url(:size => 30)) %>
       </div>
       <div class="said">
         <%= simple_format(comment.comment) %>
@@ -26,9 +27,6 @@
   <% end %>
 </ol>
 
-<% if logged_in? %>
-  <h3>Reply to this discussion</h3>
-  <%= render :partial => "help/comments/form" %>
-<% else %>
-  <h3>Login to reply to this discussion</h3>
-<% end %>
+
+<h3>Reply to this discussion</h3>
+<%= render :partial => "help/comments/form" %>

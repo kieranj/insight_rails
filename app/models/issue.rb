@@ -4,8 +4,27 @@ class Issue < ActiveResource::Base
   
   self.site           = Insight.configuration.fat_free_url
   
+  include Gravtastic
+  gravtastic :user_email
+  
   def to_param
     "#{slug}-#{id}"
+  end
+  
+  def user_name
+    if contact_id
+      contact.username
+    else
+      super
+    end
+  end
+  
+  def user_email
+    if contact_id
+      contact.email
+    else
+      super
+    end
   end
   
 end

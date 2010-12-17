@@ -1,6 +1,7 @@
-class Help::CommentsController < ApplicationController
+class Help::CommentsController < InsightController
   
-  before_filter :login_required
+  # before_filter :login_required
+  skip_before_filter :login_required
     
   def create
     @comment = Comment.new(params[:comment].merge(defaults))
@@ -15,9 +16,9 @@ class Help::CommentsController < ApplicationController
   
     def defaults
       { 
-        :issue_id       => params[:issue_id], 
-        :commenter_id   => current_user.crm_id,
-        :commenter_type => "Contact"
+        :issue_id       => params[:issue_id]#, 
+        # :commenter_id   => current_user.crm_id,
+        # :commenter_type => "Contact"
       }
     end
   

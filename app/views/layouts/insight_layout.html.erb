@@ -20,6 +20,15 @@
           <li>
             <%= link_to("Return to App", "/") %>
           </li>
+          <% if logged_in? %>
+            <li>
+              <%= link_to("Logout", help_logout_path) %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to("Login", help_login_path) %>
+            </li>
+          <% end %>
         </ul>
       </div>
       <div id="content">

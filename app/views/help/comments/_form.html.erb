@@ -1,9 +1,20 @@
 <% form_tag(help_issue_comments_path(@issue), :class => "formtastic") do %>
   <fieldset class="inputs">
     <ol>
+      <% if !logged_in? -%>
+        <li class="string">
+          <%= label_tag      "comment[user_name]", "Name" %>
+          <%= text_field_tag "comment[user_name]" %>
+        </li>
+        <li class="string">
+          <%= label_tag      "comment[user_email]", "Email" %>
+          <%= text_field_tag "comment[user_email]" %>
+        </li>
+      <% end -%>
       <li class="text">
         <%= text_area_tag "comment[comment]" %>
       </li>
+    </ol>
   </fieldset>
   
   <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_public_key %>

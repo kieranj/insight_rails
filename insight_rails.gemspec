@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kieran Johnson"]
-  s.date = %q{2010-12-15}
+  s.date = %q{2010-12-17}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
     "app/controllers/help/categories_controller.rb",
     "app/controllers/help/comments_controller.rb",
     "app/controllers/help/issues_controller.rb",
+    "app/controllers/help/sessions_controller.rb",
     "app/controllers/help_controller.rb",
     "app/controllers/insight_controller.rb",
     "app/controllers/knowledge/article_categories_controller.rb",
@@ -32,7 +33,6 @@ Gem::Specification.new do |s|
     "app/models/category.rb",
     "app/models/category_issue.rb",
     "app/models/comment.rb",
-    "app/models/insight_session.rb",
     "app/models/insight_user.rb",
     "app/models/issue.rb",
     "app/models/lead.rb",
@@ -44,7 +44,6 @@ Gem::Specification.new do |s|
     "app/views/help/issues/new.html.erb",
     "app/views/help/issues/show.html.erb",
     "app/views/help/sessions/new.html.erb",
-    "app/views/help/users/new.html.erb",
     "app/views/knowledge/article_categories/index.html.erb",
     "app/views/knowledge/articles/show.html.erb",
     "app/views/layouts/insight_layout.html.erb",
@@ -62,7 +61,7 @@ Gem::Specification.new do |s|
     "lib/insight/crm/callbacks/user.rb",
     "lib/insight/crm/models/account.rb",
     "lib/insight/crm/models/contact.rb",
-    "lib/insight/multi_pass.rb"
+    "lib/insight/multi_pass_attributes.rb"
   ]
   s.homepage = %q{http://github.com/kieranj/insight}
   s.require_paths = ["lib"]

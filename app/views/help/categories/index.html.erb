@@ -20,7 +20,7 @@
           <% if !category.issues.empty? -%>
             <%= link_to(category.issues.first.updated_at.strftime("%b %d, %Y %H:%M"),
                         help_category_issue_path(category, category.issues.first)) %> 
-            by <%= category.issues.first.contact.username %>
+            by <%= category.issues.first.user_name %>
           <% end -%>
         </td>
       </tr>

@@ -1,21 +1,20 @@
-<h1>Issues</h1>
+<h1><%= @category.name %></h1>
+<h2><%= @category.description %></h2>
 
-<p>
-  <%= link_to("Create New Issue", new_help_issue_path) %>
-</p>
+<%= link_to("Create New Issue", new_help_issue_path, :class => "button") %>
 
 <table>
   <thead>
     <tr>
-      <th>Topic</th>
-      <th>State</th>
-      <th>Replies</th>
-      <th>Latest Post</th>
+      <th width="590">Topic</th>
+      <th width="60">State</th>
+      <th width="60">Replies</th>
+      <th width="180">Latest Post</th>
     </tr>
   </thead>
   <tbody>
     <% @issues.each do |issue| %>
-      <tr>
+      <tr class="<%= cycle(:odd, :even) %>">
         <td>
           <h2><%= link_to(issue.subject, help_issue_path(issue)) %></h2>
           <p>Started by <%= issue.user_name %></p>
@@ -28,9 +27,13 @@
         </td>
         <td>
           <% if issue.comments.empty? %>
-            <%= posted_on_short(issue.created_at) %>
+            <%= link_to(posted_on_short(issue.created_at), help_issue_path(issue)) %>
+            <br />
+            <%= issue.user_name %>
           <% else %>
-            <%= posted_on_short(issue.comments.last.updated_at) %>
+            <%= link_to(posted_on_short(issue.comments.last.updated_at), help_issue_path(issue)) %>
+            <br />
+            <%= issue.comments.last.user_name %>
           <% end %>
         </td>
       </tr>

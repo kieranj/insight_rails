@@ -11,7 +11,7 @@ class Help::IssuesController < InsightController
   
   def index
     if params[:category_id]
-      @category = Category.find(params[:id])
+      @category = Category.find(params[:category_id])
       @issues   = @category.issues
     else
       @issues = Issue.find(:all)

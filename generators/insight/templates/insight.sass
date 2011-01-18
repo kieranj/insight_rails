@@ -1,60 +1,284 @@
+/*  ========================================================================= */
+/*  = Colours =                                                               */
+/*  ========================================================================= */
+
+$shadow: #333
+$blue: #0C3569
+$header_background: #006FBB
+$gray: #c1c1c1
+
+$table_header: #006FBB
+$table_border: #c1c1c1
+$table_link: #006FBB
+
+$odd: #f1f1f1
+
+$article_text: #ADADAD
+$article_background: #181818
+$article_date: #555
+
+/*  ========================================================================= */
+/*  = Variables =                                                                */
+/*  ========================================================================= */
+
+$layout: 960px
+
+$label_width: 150px
+$input_width: 350px
+
+/*  ========================================================================= */
+/*  = Mixins =                                                                */
+/*  ========================================================================= */
+
+$radius: 5px
+@mixin rounded_corner
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+/*  ========================================================================= */
+/*  = General =                                                               */
+/*  ========================================================================= */
+
 body
+  font-family: Verdana, Tahoma
   text-align: left
   
-form
-  fieldset
-    ol
-      margin: 0
-      li
-        list-style-type: none
-        margin: 10px 0
-        label
-          float: left
-          width: 100px
-      li.string input, li.select select, li.password input
-        width: 500px
-      li.text textarea
-        width: 600px
-        height: 200px
-      li.string input, li.text textarea, li.password input
-        padding: 5px
-      li.boolean
-        label
-          width: auto
-        
-ol.comments
+.button
+  @include rounded_corner
+  background: #000
+  padding: 8px
+  color: #fff
+  text-decoration: none
+  display: inline-block
+  &:hover
+    background: #006FBB
+  
+/*  ========================================================================= */
+/*  = Typography =                                                            */
+/*  ========================================================================= */
+    
+#header h1
+  text-align: center
+  color: #fff
+  text-shadow: 2px 2px 2px $shadow
+  font-size: 24px
+
+h1
+  font-size: 18px
+  font-weight: normal
+  
+h2, h3
+  text-align: left
+  font-weight: normal
+  
+h3
+  font-weight: bold
+
+/*  ========================================================================= */
+/*  = Navigation =                                                            */
+/*  ========================================================================= */
+  
+ul.nav
+  margin: 0 0 20px 0
+  margin: 0
+  overflow: hidden
+  margin-left: -10px
+  li
+    float: left
+    margin-left: 10px
+    line-height: 30px 
+    list-style-type: none
+    a
+      color: #fff
+      
+.top-nav
+  width: $layout
+  margin: 0 auto    
+  .nav
+    float: right
+    display: block
+    a
+      @include rounded_corner
+      text-decoration: none
+      padding: 5px
+      &:hover
+        background: rgba(34, 34, 34, 0.597656)
+
+.nav-bar
+  margin-left: -10px
+  background: #000
+  padding: 5px 0
+  margin-bottom: 40px
+  .nav
+    width: $layout
+    margin: 0 auto
+    line-height: 35px
+
+/*  ========================================================================= */
+/*  = Layout =                                                                */
+/*  ========================================================================= */
+      
+#wrapper
+  width: $layout
+  margin: 0 auto
+      
+#header
+  background: $header_background
+  .section
+    width: 100%
+    padding: 5px 0
+    background: rgba(34, 34, 34, 0.496094)
+    overflow: hidden
+
+#content
+  overflow: hidden
+  
+.issue
+  width: 600px
+  float: left
+  h2
+    margin-top: 0
+  .author
+    overflow: hidden
+    padding-bottom: 10px
+    img
+      float: left
+      margin-right: 10px
+    p
+      float: left
+    border-bottom: 1px solid $gray
+  .body
+    margin: 10px 0
+  
+.comments
   margin: 0
   li
     list-style-type: none
-    margin-bottom: 10px
-    border: 1px solid #c1c1c1
-    &.even
-      background: #e1e1e1
+    overflow: hidden
     .who
-      display: block
-      padding: 5px
-      background: #c1c1c1
-      p
-        margin: 0
+      background: #f1f1f1
+      line-height: 20px
+      margin-bottom: 5px
+    .gravatar
+      float: left
+      margin: 0 10px 10px 0
     .said
-      padding: 5px
-        
-table
-  width: 100%
-  tr
-    th, td
-      border: 1px solid #999999
-      padding: 10px
-  thead
-    th
-      text-align: left
-      background: #c1c1c1
-    
+      float: left
+
+.issue-status
+  width: 300px
+  float: right
+  border: 10px solid #e1e1e1
+  background: #f1f1f1
+  padding: 10px
+  
 .articles
+  margin-left: -40px
+  overflow: hidden
   .category
-    width: 50%
+    width: 460px
     float: left
+    overflow: hidden
+    margin-left: 40px
+    h2
+      font-weight: bold
     ul
       margin: 0
       li
         list-style-type: none
+        padding: 8px 0
+        border-bottom: 1px dashed #c1c1c1
+        a
+          color: #0C3569
+  
+#footer
+  border-top: 1px solid #c1c1c1
+  padding-top: 40px
+  margin: 40px 0
+        
+.latest-discussions
+  @include rounded_corner
+  background: $article_background
+  color: $article_text
+  padding: 15px 25px
+  overflow: hidden
+  width: 910px
+  .latest
+    float: left
+    width: 435px
+    &.articles
+      margin-left: 40px
+    h3
+      font-weight: bold
+      margin-top: 0
+    ul
+      margin: 0
+      li
+        padding: 8px 0
+        border-bottom: 1px dashed #f1f1f1
+        list-style-type:  none
+        span
+          color: $article_date
+        a
+          color: inherit  
+
+/*  ========================================================================= */
+/*  = Forms =                                                                 */
+/*  ========================================================================= */
+
+form
+  fieldset.inputs
+    ol
+      margin: 0
+      li
+        list-style-type: none
+        margin: 5px 0
+        label
+          width: $label_width
+          float: left
+          font-weight: bold
+          line-height: 28px
+        &.string, &.text
+          input, textarea
+            padding: 5px
+            border: 1px solid $gray
+        &.string input
+          width: $input_width
+        &.text textarea
+          width: $label_width + $input_width
+          height: 200px
+        &.select 
+          select
+            margin: 5px 0
+            
+/*  ========================================================================= */
+/*  = Tables =                                                                */
+/*  ========================================================================= */
+
+table
+  width: 100%
+  margin: 10px 0
+  th
+    border: 1px solid $table_header
+    font-size: 14px
+  td
+    border: 1px solid $table_border
+  thead
+    th
+      text-align: left
+      background: $table_header
+      color: #fff
+      padding: 10px 5px
+
+td
+  h2
+    margin: 5px 0
+    font-weight: normal
+    a
+      text-decoration: none
+td a
+  color: $table_link
+
+tr.even td
+  background: $odd

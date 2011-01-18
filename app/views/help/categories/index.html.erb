@@ -5,13 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Category</th>
-      <th>Latest Post</th>
+      <th width="790">Category</th>
+      <th width="150">Latest Post</th>
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| -%>
-      <tr>
+      <tr class="<%= cycle(:odd, :even) %>">
         <td>
           <h2><%= link_to(category.name, help_category_issues_path(category)) %></h2>
           <%= simple_format(category.description) %>

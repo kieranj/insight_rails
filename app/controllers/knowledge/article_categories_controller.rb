@@ -5,7 +5,9 @@ class Knowledge::ArticleCategoriesController < ApplicationController
   layout Insight.configuration.layout
 
   def index
-    @categories = ArticleCategory.find(:all)
+    @categories      = ArticleCategory.find(:all)
+    @latest_articles = Article.get(:latest)
+    @latest_issues   = Issue.get(:latest)
   end
   
 end

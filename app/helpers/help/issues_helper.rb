@@ -5,7 +5,11 @@ module Help::IssuesHelper
   end
   
   def posted_on_short(date)
-    date.strftime("%B #{date.day.ordinalize}, %Y %H:%M%p").downcase
+    date.strftime("%B #{date.day.ordinalize}, %Y %H:%M") + date.strftime("%p").downcase
+  end
+  
+  def comment_by(comment)
+    "staff" if comment.commenter_type == "User"
   end
   
 end

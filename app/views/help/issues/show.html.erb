@@ -1,5 +1,5 @@
 <div class="issue">
-  <h1><strong>Subject</strong> : <%= @issue.subject %></h1>
+  <h2><strong>Subject</strong> : <%= @issue.subject %></h2>
 
   <div class="author">
     <%= image_tag(@issue.gravatar_url(:size => 30)) %>
@@ -9,24 +9,31 @@
   <div class="body">
     <%= simple_format(@issue.body) %>
   </div>
+
+  <% if !@issue.comments.empty? %>
+    <h3 class="comment_count"><%= @issue.comments.count %> Comments</h3>
+
+    <ol class="comments">
+      <% @issue.comments.each_with_index do |comment, index| %>
+        <li class="<%= cycle(:odd, :even) %>">
+          <div class="<%= comment_by(comment) %>">
+            <p><strong><%= index + 1 %></strong> Posted by <cite><%= comment.user_name %></cite> on <%= posted_on_long(comment.updated_at) %></p>
+          </div>
+          <div class="gravatar">
+            <%= image_tag(comment.gravatar_url(:size => 30)) %>
+          </div>
+          <div class="said">
+            <%= simple_format(comment.comment) %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <h3 class="reply">Reply to this discussion</h3>
+  <%= render :partial => "help/comments/form" %>
 </div>
 
-<ol class="comments">
-  <% @issue.comments.each_with_index do |comment, index| %>
-    <li class="<%= cycle(:odd, :even) %>">
-      <div class="who <% "staff" if comment.commenter_type == "User" %>">
-        <p><strong><%= index + 1 %></strong> Posted by <cite><%= comment.user_name %></cite> on <%= posted_on_long(comment.updated_at) %></p>
-      </div>
-      <div class="gravatar">
-        <%= image_tag(comment.gravatar_url(:size => 30)) %>
-      </div>
-      <div class="said">
-        <%= simple_format(comment.comment) %>
-      </div>
-    </li>
-  <% end %>
-</ol>
-
-
-<h3>Reply to this discussion</h3>
-<%= render :partial => "help/comments/form" %>
+<div class="issue-status">
+  <p><strong><%= @issue.state %></strong></p>
+</div>

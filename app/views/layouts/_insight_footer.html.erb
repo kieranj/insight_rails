@@ -5,7 +5,7 @@
       <ul>
         <% Issue.find(:all, :from => :latest).each do |issue| %>
           <li>
-            <span><%= issue.created_at.strftime("%d %b %H:%H") %></span> <%= link_to(issue.title, help_issue_path(issue)) %>
+            <span><%= issue.created_at.strftime("%d %b %H:%H") %></span> <%= link_to(issue.subject, help_issue_path(issue)) %>
           </li>
         <% end %>
       </ul>

@@ -4,8 +4,6 @@ class Help::IssuesController < InsightController
   
   skip_before_filter :login_required
   
-  # before_filter :login_required, :except => [ :index, :show ]
-  
   def my
     @issues = Issue.get(:my, :crm_id => current_user.crm_id)
     render :action => "index"
@@ -13,7 +11,8 @@ class Help::IssuesController < InsightController
   
   def index
     if params[:category_id]
-      @issues = Category.find(params[:category_id]).issues
+      @category = Category.find(params[:id])
+      @issues   = @category.issues
     else
       @issues = Issue.find(:all)
     end

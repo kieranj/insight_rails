@@ -1,6 +1,5 @@
 class Help::CommentsController < InsightController
   
-  # before_filter :login_required
   skip_before_filter :login_required
     
   def create
@@ -16,9 +15,7 @@ class Help::CommentsController < InsightController
   
     def defaults
       { 
-        :issue_id       => params[:issue_id]#, 
-        # :commenter_id   => current_user.crm_id,
-        # :commenter_type => "Contact"
+        :issue_id => params[:issue_id]
       }
     end
   

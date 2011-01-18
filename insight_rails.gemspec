@@ -5,18 +5,18 @@
 
 Gem::Specification.new do |s|
   s.name = %q{insight_rails}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kieran Johnson"]
-  s.date = %q{2010-12-17}
+  s.date = %q{2011-01-18}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
-    "README"
+    "README.md"
   ]
   s.files = [
-    "README",
+    "README.md",
     "Rakefile",
     "VERSION",
     "app/controllers/help/categories_controller.rb",
@@ -46,6 +46,7 @@ Gem::Specification.new do |s|
     "app/views/help/sessions/new.html.erb",
     "app/views/knowledge/article_categories/index.html.erb",
     "app/views/knowledge/articles/show.html.erb",
+    "app/views/layouts/_insight_footer.html.erb",
     "app/views/layouts/insight_layout.html.erb",
     "config/routes.rb",
     "generators/insight/insight_generator.rb",

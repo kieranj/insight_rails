@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{insight_rails}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kieran Johnson"]
-  s.date = %q{2011-01-18}
+  s.date = %q{2011-02-15}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
@@ -52,6 +52,8 @@ Gem::Specification.new do |s|
     "generators/insight/insight_generator.rb",
     "generators/insight/lib/insert_commands.rb",
     "generators/insight/templates/README",
+    "generators/insight/templates/_insight_footer.html.erb",
+    "generators/insight/templates/insight.html.erb",
     "generators/insight/templates/insight.rake",
     "generators/insight/templates/insight.rb",
     "generators/insight/templates/insight.sass",
@@ -61,8 +63,7 @@ Gem::Specification.new do |s|
     "lib/insight/crm/callbacks/account.rb",
     "lib/insight/crm/callbacks/user.rb",
     "lib/insight/crm/models/account.rb",
-    "lib/insight/crm/models/contact.rb",
-    "lib/insight/multi_pass_attributes.rb"
+    "lib/insight/crm/models/contact.rb"
   ]
   s.homepage = %q{http://github.com/kieranj/insight}
   s.require_paths = ["lib"]

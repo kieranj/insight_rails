@@ -11,6 +11,14 @@ class Issue < ActiveResource::Base
     "#{slug}-#{id}"
   end
   
+  def contact
+    if contact_id
+      super
+    else
+      nil
+    end
+  end
+  
   def user_name
     if contact_id
       contact.username

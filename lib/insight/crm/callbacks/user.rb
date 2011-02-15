@@ -36,7 +36,7 @@ module Insight
               a[:last_name]  = lastname   if respond_to?(:lastname)
               a[:last_name]  = last_name  if respond_to?(:last_name)
               a[:email]      = email      if respond_to?(:email)
-              # a[:username]   = username   if respond_to?(:username)
+              a[:username]   = username   if respond_to?(:username)
               a
             end
             

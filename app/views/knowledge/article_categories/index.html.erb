@@ -2,15 +2,17 @@
 
 <div class="articles">
   <% @categories.each do |category| %>
-    <div class="category">
-      <h2><%= category.name %></h2>
-      <ul>
-        <% category.articles[0..5].each do |article| %>
-          <li>
-            <%= link_to(article.title, knowledge_article_path(article)) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <% if !category.articles.empty? -%>
+      <div class="category">
+        <h2><%= category.name %></h2>
+        <ul>
+          <% category.articles[0..5].each do |article| %>
+            <li>
+              <%= link_to(article.title, knowledge_article_path(article)) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 </div>

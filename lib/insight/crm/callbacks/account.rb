@@ -22,11 +22,11 @@ module Insight
               self.update_attribute(:crm_id, account.id)
             end
           
-            def update_crm_account
-              account      = CRM::Models::Account.find(crm_id)
-              account.name = name
-              account.save
-            end
+            # def update_crm_account
+            #   account      = CRM::Models::Account.find(crm_id)
+            #   account.name = name
+            #   account.save
+            # end
                     
         end
       

@@ -1,0 +1,25 @@
+<div id="footer">
+  <div class="latest-discussions">
+    <div class="latest discussions">
+      <h3>Latest Discussions</h3>
+      <ul>
+        <% Issue.find(:all, :from => :latest).each do |issue| %>
+          <li>
+            <span><%= issue.created_at.strftime("%d %b %H:%H") %></span> <%= link_to(issue.subject, help_issue_path(issue)) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  
+    <div class="latest articles">
+      <h3>Latest Knowledge Base Articles</h3>
+      <ul>
+        <% Article.find(:all, :from => :latest).each do |article| %>
+          <li>
+            <%= link_to(article.title, knowledge_article_path(article)) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

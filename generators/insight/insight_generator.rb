@@ -11,6 +11,9 @@ class InsightGenerator < Rails::Generator::Base
                            "db/migrate",
                            :migration_file_name => "link_users_to_crm_contacts"
                            
+      m.file               "insight.html.erb", "app/views/layouts/insight.html.erb"
+      m.file               "_insight_footer.html.erb", "app/views/layouts/_insight_footer.html.erb"
+                           
       m.insert_into        "app/models/user.rb",    "include Insight::CRM::Callbacks::User"
       m.insert_into        "app/models/account.rb", "include Insight::CRM::Callbacks::Account"
       

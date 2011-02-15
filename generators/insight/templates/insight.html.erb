@@ -1,0 +1,56 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Help &amp; Support</title>
+    
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css"> 
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.3.0/build/base/base-min.css">
+    
+    <%= stylesheet_link_tag 'insight' %>
+  </head>
+  <body>
+    <div id="header">
+      <div class="section">
+        <div class="top-nav">
+          <ul class="nav">
+            <li>
+              <%= link_to("Support Home", help_path) %>
+            </li>
+            <li>
+              <%= link_to("Return to App", "/") %>
+            </li>
+            <% if logged_in? %>
+              <li>
+                <%= link_to("Logout", help_logout_path) %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to("Login", help_login_path) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <h1>Help &amp; Support</h1>
+      <div class="nav-bar">
+        <ul class="nav">
+          <li>
+            <%= link_to("Start a Discussion", new_help_issue_path) %>
+          </li>
+          <li>
+            <%= link_to("Browse Discussions", help_browse_path) %>
+          </li>
+          <li>
+            <%= link_to("Knowledge Base", knowledge_path) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="content">
+        <%= yield %>
+      </div>
+      <%= render :partial => "layouts/insight_footer" %>
+    </div>
+  </body>
+</html>

@@ -4,27 +4,35 @@ Rails engine to access support requests and knowledge base articles stored in Fa
 
 ## Installation
 
-Add insight to your applications dependencies. Currently the generators only support Rails 2.
+Firstly install the insight plugin within you FatFree CRM installation.
+
+Then add insight to your applications dependencies. Currently the generators only support Rails 2.
     
 For those using bundler
 
     gem "insight_rails", :require => "insight"
     
-Other wise add to your environment.rb
+Otherwise add to your environment.rb
 
     gem.config "insight_rails", :lib => "insight"
   
-Make sure your development database exists and that you have user and account models, then run the generator:
+Make sure your development/production database exists and that you have a user model, then run the generator:
   
     script/generate insight
     
-Now run the migration to add the crm_id field to your users table. 
+Now run the generated migration to add the crm_id field to your users table. 
 
-Then update the insight initializer with details of your api_key, fatfree's url and your recaptcha keys.
+An initializer is added, and in this file you need to update the details of your product api_key (from FatFree), FatFree's api url and your recaptcha keys.
+
+Finally a rake file is added to lib/tasks. This will help migrate an existing users you have in your application to contacts within FatFree. Depending on the fields your user model has you may need to edit this to suit.
+
+To run the rake task
+
+    rake insight:generate_crm_contacts
 
 ## Usage
 
-You will now have a knowledge base of articles from your fat free installation available at:
+You will now have a knowledge base of articles from your FatFree installation available at:
 
 /knowledge
 
@@ -36,7 +44,7 @@ Discussions can be viewed at:
 
 /help/browse
 
-This will pull through the issue_categories you setup in Fat Free.
+This will pull through the issue_categories you setup in FatFree.
 
 ## Style
 

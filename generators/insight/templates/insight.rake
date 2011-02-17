@@ -1,7 +1,7 @@
 namespace :insight do
   
-  desc "Generate CRM Accounts"
-  task :generate_crm_accounts => :environment do
+  desc "Generate CRM Contacts"
+  task :generate_crm_contacts => :environment do
     Account.find_each do |account|
       name = (account.respond_to?(:name) ? account.name + " " + account.id.to_s : account.site_name + " " + account.id.to_s)
       crm_account = Insight::CRM::Models::Account.new(:name => name)

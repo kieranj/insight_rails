@@ -21,11 +21,11 @@
             </li>
             <% if logged_in? %>
               <li>
-                <%= link_to("Logout", help_logout_path) %>
+                <%= link_to("Logout", logout_path) %>
               </li>
             <% else %>
               <li>
-                <%= link_to("Login", help_login_path) %>
+                <%= link_to("Login", login_path) %>
               </li>
             <% end %>
           </ul>

@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     kb.resources :categories, :controller => "article_categories"
     kb.resources :articles,   :only       => [ :index, :show ]
   end
-  
+    
   map.help "/help",
     :controller => "help",
     :action     => "index"
@@ -17,16 +17,6 @@ ActionController::Routing::Routes.draw do |map|
     help.browse "/browse",
       :controller => "categories",
       :action     => "index"
-      
-    help.login "/login",
-      :controller => "sessions",
-      :action     => "new"
-      
-    help.logout "/logout",
-      :controller => "sessions",
-      :action     => "destroy"
-      
-    help.resource :sessions
   
     help.resources :categories do |category|
       category.resources :issues

@@ -9,20 +9,21 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kieran Johnson"]
-  s.date = %q{2011-02-15}
+  s.date = %q{2011-02-17}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
+    "LICENSE",
     "README.md"
   ]
   s.files = [
+    "LICENSE",
     "README.md",
     "Rakefile",
     "VERSION",
     "app/controllers/help/categories_controller.rb",
     "app/controllers/help/comments_controller.rb",
     "app/controllers/help/issues_controller.rb",
-    "app/controllers/help/sessions_controller.rb",
     "app/controllers/help_controller.rb",
     "app/controllers/insight_controller.rb",
     "app/controllers/knowledge/article_categories_controller.rb",
@@ -43,7 +44,6 @@ Gem::Specification.new do |s|
     "app/views/help/issues/index.html.erb",
     "app/views/help/issues/new.html.erb",
     "app/views/help/issues/show.html.erb",
-    "app/views/help/sessions/new.html.erb",
     "app/views/knowledge/article_categories/index.html.erb",
     "app/views/knowledge/articles/show.html.erb",
     "app/views/layouts/_insight_footer.html.erb",

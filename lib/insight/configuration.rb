@@ -2,12 +2,13 @@ module Insight
   
   class Configuration
     
-    attr_accessor :fat_free_url, :api_key, :layout, :recaptcha_public_key, :recaptcha_private_key
+    attr_accessor :fat_free_url, :api_key, :layout, :recaptcha_public_key, :recaptcha_private_key, :product_name
     
     def initialize
       @fat_free_url          = "http://localhost"
       @api_key               = nil
       @layout                = "support_layout"
+      @product_name          = "PRODUCT_NAME"
       @recaptcha_public_key  = nil
       @recaptcha_private_key = nil
     end

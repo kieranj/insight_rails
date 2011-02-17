@@ -35,9 +35,9 @@
     </ol>
   </fieldset>
   
-  <%= recaptcha_tags :public_key => Insight.configuration.recaptcha_public_key %>
+  <%= recaptcha_tags :display => { :theme => 'clean' }, :public_key => Insight.configuration.recaptcha_public_key %>
   
   <fieldset class="buttons">
-    <%= submit_tag("Post Issue") %>
+    <%= submit_tag("Post Issue / Topic") %>
   </fieldset>
 <% end %>

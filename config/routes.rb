@@ -1,31 +1,25 @@
-ActionController::Routing::Routes.draw do |map|
+Rails.application.routes.draw do
   
-  map.knowledge "/knowledge",
-    :controller => "knowledge/article_categories",
-    :action     => "index"
-    
-  map.namespace :knowledge do |kb|
-    kb.resources :categories, :controller => "article_categories"
-    kb.resources :articles,   :only       => [ :index, :show ]
-  end
-    
-  map.help "/help",
-    :controller => "help",
-    :action     => "index"
-    
-  map.namespace :help do |help|
-    help.browse "/browse",
-      :controller => "categories",
-      :action     => "index"
+  match "/knowledge" => "knowledge/article_categories#index", :as => "knowledge"
   
-    help.resources :categories do |category|
-      category.resources :issues
+  namespace :knowledge do
+    resources :categories, :controller => "article_categories"
+    resources :articles,   :only       => [ :index, :show ]
+  end  
+  
+  match "/help"  => "help#index", :as => "help"
+  
+  namespace :help do |help|
+
+    match "/browse" => "categories#index", :as => "browse"
+  
+    resources :categories do
+      resources :issues
     end
   
-    help.resources :issues, 
-      :collection => { :my => :get },
-      :except     => [ :destroy ] do |issue|
-      issue.resources :comments, :except => [ :destroy ]
+    resources :issues, :except => [ :destroy ] do
+      get :my, :on => :collection
+      resources :comments, :except => [ :destroy ]
     end
   end
   

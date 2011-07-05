@@ -9,7 +9,6 @@ module Insight
         def self.included(base)
           base.class_eval do
             after_create :create_crm_contact
-            # after_update :update_crm_contact, :unless => :recording_last_activity?
           end
         
           protected
@@ -22,12 +21,6 @@ module Insight
               self.update_attribute(:crm_id, contact.id)
             end
           
-            # def update_crm_contact
-            #   contact            = CRM::Models::Contact.find(crm_id)
-            #   contact.attributes = crm_attributes
-            #   contact.save
-            # end
-          
             def crm_attributes
               a = {}
               a[:title]      = title      if respond_to?(:title)
@@ -39,11 +32,7 @@ module Insight
               a[:username]   = username   if respond_to?(:username)
               a
             end
-            
-            # def recording_last_activity?
-            #   respond_to?(:last_activity) && last_activity_changed?
-            # end
-          
+                      
         end
       
       end

@@ -1,0 +1,11 @@
+Description:
+    Generates the necessary config file, migration and a simple layout with stylesheet.
+
+Example:
+    rails generate insight:install
+
+    This will create:
+        config/initializers/insight.rb
+        app/views/layouts/insight.html.erb
+        app/views/layouts/_insight_footer.html.erb
+        app/assets/stylesheets/insight.sass.css

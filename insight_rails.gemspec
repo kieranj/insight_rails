@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{insight_rails}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kieran Johnson"]
-  s.date = %q{2011-02-17}
+  s.authors = [%q{Kieran Johnson}]
+  s.date = %q{2011-07-05}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
   s.extra_rdoc_files = [
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    "Gemfile",
     "LICENSE",
     "README.md",
     "Rakefile",
@@ -49,39 +50,48 @@ Gem::Specification.new do |s|
     "app/views/layouts/_insight_footer.html.erb",
     "app/views/layouts/insight_layout.html.erb",
     "config/routes.rb",
-    "generators/insight/insight_generator.rb",
-    "generators/insight/lib/insert_commands.rb",
-    "generators/insight/templates/README",
-    "generators/insight/templates/_insight_footer.html.erb",
-    "generators/insight/templates/insight.html.erb",
-    "generators/insight/templates/insight.rake",
-    "generators/insight/templates/insight.rb",
-    "generators/insight/templates/insight.sass",
-    "generators/insight/templates/migrations/link_users_to_crm_contacts.rb",
+    "lib/generators/insight/install/USAGE",
+    "lib/generators/insight/install/install_generator.rb",
+    "lib/generators/insight/install/templates/README",
+    "lib/generators/insight/install/templates/_insight_footer.html.erb",
+    "lib/generators/insight/install/templates/insight.html.erb",
+    "lib/generators/insight/install/templates/insight.rake",
+    "lib/generators/insight/install/templates/insight.rb",
+    "lib/generators/insight/install/templates/insight.sass",
+    "lib/generators/insight/install/templates/migrations/link_users_to_crm_contacts.rb",
+    "lib/generators/insight_rails/install/install_generator.rb",
     "lib/insight.rb",
     "lib/insight/configuration.rb",
     "lib/insight/crm/callbacks/account.rb",
     "lib/insight/crm/callbacks/user.rb",
     "lib/insight/crm/models/account.rb",
-    "lib/insight/crm/models/contact.rb"
+    "lib/insight/crm/models/contact.rb",
+    "lib/insight/engine.rb",
+    "lib/insight/railtie.rb",
+    "lib/insight/version.rb"
   ]
   s.homepage = %q{http://github.com/kieranj/insight}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{Customer Support and Knowledge Base}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<insight_rails>, [">= 0"])
+      s.add_runtime_dependency(%q<rails>, [">= 3.1.0.rc4"])
       s.add_runtime_dependency(%q<recaptcha>, [">= 0"])
       s.add_runtime_dependency(%q<gravtastic>, [">= 0"])
     else
+      s.add_dependency(%q<insight_rails>, [">= 0"])
+      s.add_dependency(%q<rails>, [">= 3.1.0.rc4"])
       s.add_dependency(%q<recaptcha>, [">= 0"])
       s.add_dependency(%q<gravtastic>, [">= 0"])
     end
   else
+    s.add_dependency(%q<insight_rails>, [">= 0"])
+    s.add_dependency(%q<rails>, [">= 3.1.0.rc4"])
     s.add_dependency(%q<recaptcha>, [">= 0"])
     s.add_dependency(%q<gravtastic>, [">= 0"])
   end

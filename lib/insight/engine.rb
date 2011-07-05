@@ -7,6 +7,10 @@ module Insight
     
     engine_name :insight
     
+    rake_tasks do
+      load File.join(File.dirname(__FILE__), "railties", "tasks.rake")
+    end
+    
   end
   
 end

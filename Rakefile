@@ -1,5 +1,4 @@
 require "jeweler"
-require File.join(File.dirname(__FILE__), "lib", "insight", "version")
 
 Jeweler::Tasks.new do |gem|
   gem.name        = "insight_rails"

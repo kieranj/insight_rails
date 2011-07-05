@@ -12,7 +12,7 @@ Then add insight_rails to your applications Gemfile.
 
     gem "insight_rails", :require => "insight"
     
-Make sure your development/production database exists and that you have a user model, then run the generator:
+Make sure your development/production database exists and that you have a user and account models, then run the generator:
   
     rails g insight:install
     

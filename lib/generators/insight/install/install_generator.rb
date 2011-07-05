@@ -24,7 +24,7 @@ module Insight
         copy_file "insight.rake",             "lib/tasks/insight.rake"
         copy_file "insight.html.erb",         "app/views/layouts/insight_layout.rb"
         copy_file "_insight_footer.html.erb", "app/views/layouts/_insight_footer.html.erb"    
-        copy_file "insight.sass",             "app/assets/stylesheets/insight.sass.css"
+        copy_file "insight.sass",             "app/assets/stylesheets/insight.css.sass"
   
         migration_template "migrations/link_users_to_crm_contacts.rb", "db/migrate/link_users_to_crm_contacts.rb"
   

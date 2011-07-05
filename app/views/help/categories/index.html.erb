@@ -19,8 +19,8 @@
         <td>
           <% if !category.issues.empty? -%>
             <%= link_to(category.issues.first.updated_at.strftime("%b %d, %Y %H:%M"),
-                        help_category_issue_path(category, category.issues.first)) %> 
-            by <%= category.issues.first.contact.nil? ? category.issues.first.user_name : category.issues.first.contact.username %>
+                        help_category_issue_path(category, "#{category.issues.first.slug}-#{category.issues.first.id}")) %> 
+            by <%= category.issues.first.contact_id.nil? ? category.issues.first.user_name : category.issues.first.contact.username %>
           <% end -%>
         </td>
       </tr>

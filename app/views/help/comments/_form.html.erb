@@ -1,4 +1,4 @@
-<% form_tag(help_issue_comments_path(@issue), :class => "formtastic") do %>
+<%= form_tag(help_issue_comments_path(@issue), :class => "formtastic") do %>
   <fieldset class="inputs">
     <ol>
       <% if !logged_in? -%>

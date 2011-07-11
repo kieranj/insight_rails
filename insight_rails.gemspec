@@ -5,10 +5,10 @@
 
 Gem::Specification.new do |s|
   s.name = %q{insight_rails}
-  s.version = "0.3.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kieran Johnson"]
+  s.authors = [%q{Kieran Johnson}]
   s.date = %q{2011-07-11}
   s.description = %q{Customer Support and Knowledge Base}
   s.email = %q{support@invisiblelines.com}
@@ -33,9 +33,10 @@ Gem::Specification.new do |s|
     "app/models/article_category.rb",
     "app/models/category.rb",
     "app/models/category_issue.rb",
-    "app/models/comment.rb",
+    "app/models/comment_gravatar.rb",
     "app/models/insight_user.rb",
     "app/models/issue.rb",
+    "app/models/issue/comment.rb",
     "app/models/lead.rb",
     "app/views/help/categories/index.html.erb",
     "app/views/help/comments/_form.html.erb",
@@ -67,12 +68,11 @@ Gem::Specification.new do |s|
     "lib/insight/railties/tasks.rake"
   ]
   s.homepage = %q{http://github.com/kieranj/insight}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{Customer Support and Knowledge Base}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then

@@ -1,4 +1,4 @@
-class Comment < ActiveResource::Base
+class Issue::Comment < ActiveResource::Base
   
   headers["X-ApiKey"] = Insight.configuration.api_key
   

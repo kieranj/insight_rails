@@ -20,7 +20,7 @@
             <p><strong><%= index + 1 %></strong> Posted by <cite><%= comment.user_name %></cite> on <%= posted_on_long(comment.updated_at) %></p>
           </div>
           <div class="gravatar">
-            <%= image_tag(comment.gravatar_url(:size => 30)) %>
+            <%= image_tag(CommentGravatar.new(comment.user_email).gravatar_url(:size => 30)) %>
           </div>
           <div class="said">
             <%= simple_format(comment.comment) %>
